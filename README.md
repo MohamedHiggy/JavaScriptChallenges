@@ -1,1 +1,1 @@
-# JavaScriptChallenges
+# JavaScript Interview Coding Challenges 
