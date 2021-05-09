@@ -2,7 +2,6 @@
  * Find Longest Word in text
  */
 
-// === solution one === //
 /* (function findLongestWrod(str) {
     let words = str.split(" ")
     let longestWord = ""
@@ -15,7 +14,6 @@
     return longestWord
 })("Lorem ipsum dolossr sit amet") */
 
-// === solution two === //
 function findLongestWrod(str) {
     return str.split(" ").sort(function(a, b) {
         return b.length - a.length;
