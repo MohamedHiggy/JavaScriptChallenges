@@ -31,3 +31,13 @@
     })
     return result
 } */
+
+// ==== fourth solution ==== //
+let palindrome = function(str) {
+    let len = str.length;
+    let start = str.substring(0, Math.floor(len / 2)).toLowerCase();
+    let end = str.substring(len - Math.floor(len / 2)).toLowerCase();
+    let flip = end.split("").reverse().join("");
+    return (start === flip)
+}
+console.log(palindrome("redders"));
