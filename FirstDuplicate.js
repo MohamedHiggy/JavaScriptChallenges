@@ -1,6 +1,7 @@
 /*Write a function that takes an argument of an array of
  *numbers and returns the first duplicate.
  *Example: findFirstDupl([2, 4, 5, 1, 3, 5, 4]) returns 4
+ *if none repeated return -1
  */
 
 // === first solution === //
@@ -30,10 +31,29 @@
 } */
 
 // === Second solution === //
-function FirstDuplicate(arr) {
+/* function FirstDuplicate(arr) {
     for (let num of arr) {
         dupNumbers = arr.filter(value => value == num);
         if (dupNumbers.length > 1) return num;
     }
+} */
+
+// === third solution === //
+function FirstDuplicate(arr) {
+    let maxNumber = 1;
+    let postion = 0;
+    let value = -1
+    arr.reduce((accumulator, currentValue, index) => {
+        accumulator[currentValue] = accumulator[currentValue] ? {...accumulator[currentValue], amount: accumulator[currentValue]["amount"] + 1, } : { amount: 1, index };
+        let amount = accumulator[currentValue].amount;
+        let place = accumulator[currentValue].index;
+        if (amount > maxNumber || (amount === maxNumber && place <= postion && amount > 1)) {
+            maxNumber = amount;
+            value = currentValue;
+            postion = place;
+        }
+        return accumulator;
+    }, {});
+    return value;
 }
-console.log(FirstDuplicate([2, 5, 4, 5, 1, 3, 5, 4]));
+console.log(FirstDuplicate([2, 4, 5, 1, 3, 5, 4]));
