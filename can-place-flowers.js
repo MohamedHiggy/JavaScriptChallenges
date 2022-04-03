@@ -3,7 +3,7 @@ function canPlaceFlowers(flowerbed, n) {
     for (let index = 0; index < flowerbed.length; index++) {
         if (flowerbed[index] == 0 && flowerbed[index - 1] != 1  && flowerbed[index +1] != 1 ) {
             ++counter
-            flowerbed.splice(index,1,1)
+            flowerbed.splice(index,1)
         }
     }
     if (counter >= n) {
@@ -12,4 +12,4 @@ function canPlaceFlowers(flowerbed, n) {
         return false
     }
 }
-console.log(canPlaceFlowers([1,0,0,0,1,0,0], 2));
+console.log(canPlaceFlowers([1,1,0,0,1], 1));
